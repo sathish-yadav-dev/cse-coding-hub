@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSE Pro Hub | Easy Learning</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root { --primary: #6366f1; --dark: #0f172a; }
+        body { background-color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .hero { background: var(--dark); color: white; padding: 50px 20px; border-radius: 0 0 40px 40px; text-align: center; margin-bottom: 40px; }
+        .course-card { background: white; border-radius: 20px; border: none; box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: 0.3s; height: 100%; }
+        .course-card:hover { transform: translateY(-5px); }
+        .quiz-area { display: none; margin-top: 20px; padding: 15px; background: #f1f5f9; border-radius: 12px; }
+        .btn-learn { background: var(--primary); color: white; border-radius: 50px; padding: 8px 25px; border: none; }
+        .btn-quiz { background: #10b981; color: white; border-radius: 50px; padding: 8px 25px; border: none; margin-left: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <h1 class="display-5 fw-bold">SATHISH YADAV CODING ACADEMY</h1>
+        <p class="lead">టీచర్లు చెప్పేదాని కంటే సులభంగా.. ప్రాక్టికల్ గా కోడింగ్ నేర్చుకోండి!</p>
+    </div>
+
+    <div class="container mb-5">
+        <div class="row g-4">
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card course-card p-4">
+                    <h3 class="fw-bold text-primary">Python for Beginners</h3>
+                    <p class="text-muted small">అన్నిటికంటే ఈజీ లాంగ్వేజ్. AI మరియు డేటా సైన్స్ కి ఇదే కీలకం.</p>
+                    <div class="d-flex">
+                        <a href="https://www.w3schools.com/python/" target="_blank" class="btn btn-learn">Learn</a>
+                        <button onclick="showQuiz('python')" class="btn btn-quiz">Mini Exam</button>
+                    </div>
+                    
+                    <div id="quiz-python" class="quiz-area">
+                        <h6><b>Q: Python లో ప్రింట్ చేయడానికి ఏది వాడతారు?</b></h6>
+                        <button onclick="checkAns(true)" class="btn btn-sm btn-outline-dark d-block mb-2 w-100 text-start">1. print("Hello")</button>
+                        <button onclick="checkAns(false)" class="btn btn-sm btn-outline-dark d-block w-100 text-start">2. echo "Hello"</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card course-card p-4">
+                    <h3 class="fw-bold text-danger">Java Mastery</h3>
+                    <p class="text-muted small">ప్లేస్‌మెంట్స్ లో ఎక్కువగా అడిగే లాంగ్వేజ్. OOPS కాన్సెప్ట్స్ క్లియర్ గా నేర్చుకోండి.</p>
+                    <div class="d-flex">
+                        <a href="https://www.javatpoint.com/java-tutorial" target="_blank" class="btn btn-learn" style="background: #ef4444;">Learn</a>
+                        <button onclick="showQuiz('java')" class="btn btn-quiz">Mini Exam</button>
+                    </div>
+                    
+                    <div id="quiz-java" class="quiz-area">
+                        <h6><b>Q: Java లో 'Main Method' ఎందుకు వాడతారు?</b></h6>
+                        <button onclick="checkAns(true)" class="btn btn-sm btn-outline-dark d-block mb-2 w-100 text-start">1. ప్రోగ్రామ్ స్టార్ట్ చేయడానికి</button>
+                        <button onclick="checkAns(false)" class="btn btn-sm btn-outline-dark d-block w-100 text-start">2. డిజైన్ చేయడానికి</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card course-card p-4">
+                    <h3 class="fw-bold text-success">C Programming</h3>
+                    <p class="text-muted small">కోడింగ్ లో ABCD లు అంటే ఇవే. బేసిక్స్ స్ట్రాంగ్ అవ్వాలంటే ఇక్కడే మొదలుపెట్టండి.</p>
+                    <div class="d-flex">
+                        <a href="https://www.geeksforgeeks.org/c-programming-language/" target="_blank" class="btn btn-learn" style="background: #10b981;">Learn</a>
+                        <button onclick="showQuiz('c')" class="btn btn-quiz">Mini Exam</button>
+                    </div>
+                    
+                    <div id="quiz-c" class="quiz-area">
+                        <h6><b>Q: C లో ఇంటిజర్ వాల్యూ కి ఏ కీవర్డ్ వాడతారు?</b></h6>
+                        <button onclick="checkAns(true)" class="btn btn-sm btn-outline-dark d-block mb-2 w-100 text-start">1. int</button>
+                        <button onclick="checkAns(false)" class="btn btn-sm btn-outline-dark d-block w-100 text-start">2. float</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function showQuiz(id) {
+            document.querySelectorAll('.quiz-area').forEach(q => q.style.display = 'none');
+            document.getElementById('quiz-' + id).style.display = 'block';
+        }
+
+        function checkAns(isCorrect) {
+            if(isCorrect) {
+                alert("🎉 అదిరిపోయింది! మీ సమాధానం కరెక్ట్. మీరు ప్రో లెవల్ కి వెళ్తున్నారు!");
+            } else {
+                alert("❌ అయ్యో, తప్పు సమాధానం. ఒక్కసారి మళ్ళీ 'Learn' బటన్ నొక్కి చదవండి!");
+            }
+        }
+    </script>
+
+</body>
+</html>
